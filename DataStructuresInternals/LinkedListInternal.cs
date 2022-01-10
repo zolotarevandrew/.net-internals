@@ -356,11 +356,7 @@
             this.list = list;
             this.item = value;
         }
- 
-        public LinkedList<T> List {
-            get { return list;}
-        }
- 
+
         public LinkedListNode<T> Next {
             get { return next == null || next == list.head? null: next;}
         }

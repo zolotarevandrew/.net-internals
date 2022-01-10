@@ -77,36 +77,6 @@ public class SortedList<TKey, TValue>
         Capacity = capacity;
     }
 
-    // Constructs a new sorted list containing a copy of the entries in the
-    // given dictionary. The elements of the sorted list are ordered according
-    // to the IComparable interface, which must be implemented by the
-    // keys of all entries in the the given dictionary as well as keys
-    // subsequently added to the sorted list.
-    // 
-    public SortedList(IDictionary<TKey, TValue> dictionary)
-        : this(dictionary, null)
-    {
-    }
-
-    // Constructs a new sorted list containing a copy of the entries in the
-    // given dictionary. The elements of the sorted list are ordered according
-    // to the given IComparer implementation. If comparer is
-    // null, the elements are compared to each other using the
-    // IComparable interface, which in that case must be implemented
-    // by the keys of all entries in the the given dictionary as well as keys
-    // subsequently added to the sorted list.
-    // 
-    public SortedList(IDictionary<TKey, TValue> dictionary, IComparer<TKey> comparer)
-        : this((dictionary != null ? dictionary.Count : 0), comparer)
-    {
-        //if (dictionary == null) ThrowHelper.ThrowArgumentNullException(ExceptionArgument.dictionary);
-
-        dictionary.Keys.CopyTo(keys, 0);
-        dictionary.Values.CopyTo(values, 0);
-        Array.Sort<TKey, TValue>(keys, values, comparer);
-        _size = dictionary.Count;
-    }
-
     // Adds an entry with the given key and value to this sorted list. An
     // ArgumentException is thrown if the key is already present in the sorted list.
     // 
@@ -339,33 +309,5 @@ public class SortedList<TKey, TValue>
         if (i >= 0)
             RemoveAt(i);
         return i >= 0;
-    }
-
-    // Sets the capacity of this sorted list to the size of the sorted list.
-    // This method can be used to minimize a sorted list's memory overhead once
-    // it is known that no new elements will be added to the sorted list. To
-    // completely clear a sorted list and release all memory referenced by the
-    // sorted list, execute the following statements:
-    // 
-    // SortedList.Clear();
-    // SortedList.TrimExcess();
-    // 
-    public void TrimExcess()
-    {
-        int threshold = (int) (((double) keys.Length) * 0.9);
-        if (_size < threshold)
-        {
-            Capacity = _size;
-        }
-    }
-
-    private static bool IsCompatibleKey(object key)
-    {
-        if (key == null)
-        {
-            //ThrowHelper.ThrowArgumentNullException(ExceptionArgument.key);
-        }
-
-        return (key is TKey);
     }
 }
