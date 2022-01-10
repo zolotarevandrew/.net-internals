@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesStructsRecords", "ClassesStructsRecords\ClassesStructsRecords.csproj", "{D9AFD52B-DA8B-4ED3-ADDA-6805B98A2908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresInternals", "DataStructuresInternals\DataStructuresInternals.csproj", "{8E97E083-3619-4709-B005-80FE51E64329}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9AFD52B-DA8B-4ED3-ADDA-6805B98A2908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9AFD52B-DA8B-4ED3-ADDA-6805B98A2908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AFD52B-DA8B-4ED3-ADDA-6805B98A2908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9AFD52B-DA8B-4ED3-ADDA-6805B98A2908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E97E083-3619-4709-B005-80FE51E64329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E97E083-3619-4709-B005-80FE51E64329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E97E083-3619-4709-B005-80FE51E64329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E97E083-3619-4709-B005-80FE51E64329}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
