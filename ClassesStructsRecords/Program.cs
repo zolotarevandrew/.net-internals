@@ -1,25 +1,37 @@
-﻿using System.Reflection;
-using ClassesStructsRecords;
+﻿using ClassesStructsRecords;
 
-int a = 5;
-ReadonlyStruct readonlyStruct = new ReadonlyStruct(5);
-Console.WriteLine(readonlyStruct.Value);
 
-PartialReadonlyStruct partialReadonlyStruct = new PartialReadonlyStruct(5);
-Console.WriteLine(partialReadonlyStruct.Value);
+var record = new MyDeconstructRecord2("5", "6");
+var (value, name) = record;
+Console.WriteLine(value + " " + name);
 
-ReadonlyStruct readonlyStructCopy = readonlyStruct with { Value = 3 };
-Console.WriteLine(readonlyStructCopy.Value);
-Console.WriteLine(readonlyStructCopy.GetHashCode());
-Console.WriteLine(readonlyStruct.GetHashCode());
+var record2 = new MyDeconstructRecord2("5", "6");
+//true
+Console.WriteLine(record == record2);
 
-RefStruct refStruct = new RefStruct(5);
-ShowRefStruct(readonlyStructCopy);
-
-void ShowRefStruct(ReadonlyStruct refStruct)
+var myRecord3 = record2 with
 {
-    Console.WriteLine(refStruct.Value);
-}
+    Value = "6"
+};
+
+var myStruct = new MyStruct("5");
+var myStruct2 = new MyStruct("5");
+
+//true no boxing
+Console.WriteLine(myStruct.Equals(myStruct2));
+
+
+var myRecordStruct = new MyRecordStruct("5");
+var myRecordStruct2 = new MyRecordStruct("5");
+var myRecordStruct3 = myRecordStruct with
+{
+    Value = "6"
+};
+
+//true
+Console.WriteLine(myRecordStruct == myRecordStruct2);
+//true no boxing
+Console.WriteLine(myRecordStruct.Equals(myRecordStruct2));
 
 
 
