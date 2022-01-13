@@ -9,3 +9,5 @@ list.Add(1, 1);
 list.Add(3, 2);
 list.Add(2, 2);
 Console.WriteLine("Hello, World!");
+
+var hashtable = new Hashtable();

@@ -8,11 +8,12 @@
 
     public static class HashHelpers
     {
+        public const int HashPrime = 101;
         public static int ExpandPrime(int r)
         {
             throw new NotImplementedException();
         }
-        
+
         public static bool IsPrime(int r)
         {
             throw new NotImplementedException();
