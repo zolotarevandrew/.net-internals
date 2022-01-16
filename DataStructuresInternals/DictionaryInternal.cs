@@ -293,67 +293,6 @@ public class DictionaryInternal<TKey, TValue>
                     }
                 }
             }
-            else
-            {
-                // Object type: Shared Generic, EqualityComparer<TValue>.Default won't devirtualize
-                // https://github.com/dotnet/runtime/issues/10050
-                // So cache in a local rather than get EqualityComparer per loop iteration
-                EqualityComparer<TKey> defaultComparer = EqualityComparer<TKey>.Default;
-                while (true)
-                {
-                    // Should be a while loop https://github.com/dotnet/runtime/issues/9422
-                    // Test uint in if rather than loop condition to drop range check for following array access
-                    if ((uint) i >= (uint) entries.Length)
-                    {
-                        break;
-                    }
-
-                    if (entries[i].hashCode == hashCode && defaultComparer.Equals(entries[i].key, key))
-                    {
-                        
-
-                        return false;
-                    }
-
-                    i = entries[i].next;
-
-                    collisionCount++;
-                    if (collisionCount > (uint) entries.Length)
-                    {
-                        // The chain of entries forms a loop; which means a concurrent update has happened.
-                        // Break out of the loop and throw, rather than looping forever.
-                       
-                    }
-                }
-            }
-        }
-        else
-        {
-            while (true)
-            {
-                // Should be a while loop https://github.com/dotnet/runtime/issues/9422
-                // Test uint in if rather than loop condition to drop range check for following array access
-                if ((uint) i >= (uint) entries.Length)
-                {
-                    break;
-                }
-
-                if (entries[i].hashCode == hashCode && comparer.Equals(entries[i].key, key))
-                {
-                    
-
-                    return false;
-                }
-
-                i = entries[i].next;
-
-                collisionCount++;
-                if (collisionCount > (uint) entries.Length)
-                {
-                    // The chain of entries forms a loop; which means a concurrent update has happened.
-                    // Break out of the loop and throw, rather than looping forever.
-                }
-            }
         }
 
         int index;
