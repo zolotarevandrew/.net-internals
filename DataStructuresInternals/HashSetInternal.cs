@@ -23,6 +23,16 @@
         {
             throw new NotImplementedException();
         }
+
+        public static uint FastMod(uint hashcode, uint bucketsLength, ulong fastModBucketsMultiplier)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static ulong GetFastModMultiplier(uint bucketsLength)
+        {
+            throw new NotImplementedException();
+        }
     }
     
     public class HashSet<T>
