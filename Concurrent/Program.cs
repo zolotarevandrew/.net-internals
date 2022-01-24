@@ -5,4 +5,5 @@ using System.Runtime.CompilerServices;
 using Concurrent;
 
 
-await ManualResetEventSlimInternals.ExecuteAsync();
+await AsyncReaderWriterLockSlimInternals.ExecuteAsync();
+ReadeWriterLockSlimInternals.ExecuteAsync();
