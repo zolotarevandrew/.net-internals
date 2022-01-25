@@ -5,5 +5,4 @@ using System.Runtime.CompilerServices;
 using Concurrent;
 
 
-await AsyncReaderWriterLockSlimInternals.ExecuteAsync();
-ReadeWriterLockSlimInternals.ExecuteAsync();
+await CountDownEventInternals.ExecuteAsync(CancellationToken.None);
