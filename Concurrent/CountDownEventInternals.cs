@@ -23,7 +23,7 @@ public static class CountDownEventInternals
             }));
         }
 
-        //await Task.WhenAll(tasks);
+        await Task.WhenAll(tasks);
         countdownEvent.Wait(token);
  
         foreach (var r in result)

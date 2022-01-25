@@ -5,4 +5,4 @@ using System.Runtime.CompilerServices;
 using Concurrent;
 
 
-await CountDownEventInternals.ExecuteAsync(CancellationToken.None);
+await BarrierInternals.ExecuteAsync();
