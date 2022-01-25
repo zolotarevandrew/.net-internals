@@ -7,21 +7,23 @@ public static class CountDownEventInternals
         await Task.CompletedTask;
         
         int numOfTasks = 10;
-        
-        CountdownEvent countdownEvent = new CountdownEvent(numOfTasks);
 
+        using CountdownEvent countdownEvent = new CountdownEvent(numOfTasks);
+        
         int[] result = new int[numOfTasks];
+        var tasks = new List<Task>();
         for (int i = 0; i < numOfTasks; ++i)
         {
             int j = i;
-            Task.Factory.StartNew( async () =>
+            tasks.Add(Task.Factory.StartNew(() =>
             {
+                throw new InvalidOperationException();
                 countdownEvent.Signal();
-                await Task.Delay(500, token);
                 result[j] = j * 10;
-            });
+            }));
         }
- 
+
+        //await Task.WhenAll(tasks);
         countdownEvent.Wait(token);
  
         foreach (var r in result)
