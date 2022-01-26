@@ -5,4 +5,4 @@ using System.Runtime.CompilerServices;
 using Concurrent;
 
 
-await BarrierInternals.ExecuteAsync();
+await InterlockedInternals.ExecuteAsync();
