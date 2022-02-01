@@ -4,6 +4,8 @@ public class ThreadPoolInternals
 {
     public static async Task ExecuteAsync()
     {
+        Console.WriteLine(SynchronizationContext.Current == null ? "null" : "not null");
+        
         var tasks = new List<Task>();
         for (int i = 0; i < 5; i++)
         {
